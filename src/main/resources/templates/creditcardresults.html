@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title> Credit Card App</title>
+    <link rel="stylesheet" href="/static/style.css"/>
+</head>
+<body>
+<p th:if="${isSaved == true}">
+<h3> Card Saved Successfully.</h3>
+</p>
+<br>
+<br>
+<a href='/secure/home'><button>Home</button></a>
+</body>
+</html>

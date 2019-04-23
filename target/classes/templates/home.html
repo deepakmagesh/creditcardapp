@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title> Credit Card App</title>
+    <link rel="stylesheet" href="/static/style.css"/>
+    <style>
+        table {
+            width:100%;
+        }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        table#t01 tr:nth-child(even) {
+            background-color: #eee;
+        }
+        table#t01 tr:nth-child(odd) {
+            background-color: #fff;
+        }
+        table#t01 th {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<h3> Search </h3>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div>
+    Logged in user: <b th:inline="text"  class="user"> [[${#httpServletRequest.remoteUser}]] </b>
+    <br><br><br>
+    <form th:action="@{/app-logout}" method="POST">
+        <input type="submit" value="Logout"/>
+    </form>
+</div>
+<br><br><br>
+<form class="example" action="/secure/search">
+    <select name = "dropdown">
+        <option value = "cardnumber" selected>Card Number</option>
+        <option value = "cardname">Card Name</option>
+        <option value = "expiry">Expiry</option>
+    </select>
+    <input type="text" placeholder="Search for credit card.." name="searchText">
+    <button type="submit"><i class="fa fa-search"></i></button>
+</form>
+<br>
+<br>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Card Number</th>
+        <th>Card Name</th>
+        <th>Expiry Date</th>
+    </tr>
+    </thead>
+    <tr th:each="card : ${creditCardList}">
+        <td th:text="${card.creditCardNum}">Onions</td>
+        <td th:text="${card.creditCardName}">2.41</td>
+        <td th:text="${card.expiryDate}">yes</td>
+    </tr>
+
+
+</table>
+<br>
+<br>
+<br>
+<br>
+<a href='/secure/createcreditcard'><button>Create new Credit Card</button></a>
+
+</body>
+</html>
