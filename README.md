@@ -2,7 +2,7 @@
 Credit card app using Spring boot + Spring security + Spring data
 
 Credit card app using Spring boot + Spring security + Spring data.
-Spring security ensures all the /secure/ URL's can be accessed only after logging in to the application. 
+Spring security ensures all the **/secure/** URL's can be accessed only after logging in to the application. 
 Spring security is responsible for logging in new user in to the system.
 
 Admin user credentials 
